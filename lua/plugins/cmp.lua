@@ -21,7 +21,7 @@ return { -- override nvim-cmp plugin
     }
     opts.mapping["<Tab>"] = vim.schedule_wrap(function(fallback)
       if cmp.visible() and has_words_before() then
-        cmp.confirm { select = true }
+        cmp.select_next_item { behavior = cmp.SelectBehavior.Select }
       else
         fallback()
       end
